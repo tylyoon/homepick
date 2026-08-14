@@ -1,6 +1,5 @@
 package com.onrender.homepick.controller;
 
-
 import com.onrender.homepick.dto.MemberJoinDto;
 import com.onrender.homepick.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -27,12 +26,6 @@ public class MemberController{
         return "member/join";
     }
 
-     // 로그인 성공 페이지 매핑 추가
-    @GetMapping("/success")
-    public String successPage() {
-        return "member/success"; // templates/member/success.html
-    }
-
     // 회원가입 처리
     @PostMapping("/join")
     public String joinProcess(@ModelAttribute MemberJoinDto joinDto){
@@ -44,9 +37,4 @@ public class MemberController{
     public String successPage(){
         return "member/success";
     }
-
-        public Member() {
-    }
-
-   
 }
