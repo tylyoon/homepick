@@ -35,6 +35,6 @@ public class MemberController{
 
     @GetMapping("/success")
     public String successPage(){
-        return "member/success";
+        return "/index";
     }
 }

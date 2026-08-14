@@ -29,13 +29,13 @@ public class SecurityConfig{
             .formLogin(form -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/success", true)
+                .defaultSuccessUrl("/", true) // 로그인 성공 시 이동할 URL : index 페이지로 이동하도록 설정
                 .failureUrl("/login?error=true")
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/") // 로그아웃 성공 시 이동할 URL : index 페이지로 이동하도록 설정
                 .permitAll()
             )
             .csrf(csrf -> csrf.disable());
