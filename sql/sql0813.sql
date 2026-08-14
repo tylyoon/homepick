@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS qna;
+#DROP TABLE IF EXISTS qna;
 
 -- UTF-8(utf8mb4) 인코딩 설정으로 스키마 생성
 CREATE DATABASE IF NOT EXISTS homepick
@@ -8,6 +8,7 @@ DEFAULT COLLATE utf8mb4_unicode_ci;
 -- 생성된 스키마 사용
 USE homepick;
 
+-- qna --
 CREATE TABLE qna (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
@@ -16,6 +17,18 @@ CREATE TABLE qna (
     status VARCHAR(20) DEFAULT '대기중', -- '대기중' 또는 '답변완료'
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) AUTO_ID_CACHE 1; 
+
+
+-- 회원가입 --
+CREATE TABLE member (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100),
+    role VARCHAR(20) DEFAULT 'ROLE_USER',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) AUTO_ID_CACHE 1;
 
 -- 테스트용 초기 데이터 3건
 INSERT INTO qna (title, content, writer) VALUES
